@@ -1,0 +1,8 @@
+@import "tailwindcss";
+\html {
+    scroll-behavior: smooth;
+  }
+  /* Global Section Spacing */
+section {
+  @apply pt-6 pb-6 md:pt-10 md:pb-10;
+}
