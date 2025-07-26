@@ -19,9 +19,9 @@ export default function Home() {
       </div>
 
       {/* Intro Text */}
-      <div className="mb-4 text-[22px] md:text-[34px] font-semibold text-yellow-600">
+      <div className="mb-4 text-[26px] md:text-[34px] font-semibold text-yellow-400">
         <div>Hello, I'm Priya Tripathi</div>
-        <div className="text-slate-400 mt-1">
+        <div className="text-slate-200 mt-1">
           <Typewriter
             words={['Full Stack Developer', 'MERN Stack Developer']}
             loop={true}
@@ -35,24 +35,25 @@ export default function Home() {
       </div>
 
       {/* Tagline */}
-      <p className="text-[15px] md:text-[18px] text-amber-400 animate-pulse leading-relaxed mb-6 max-w-2xl">
-        I’m a Web Developer who loves building fast, responsive and creative websites.
+      <p className="text-[15px] md:text-[18px] text-slate-200  leading-relaxed mb-6 max-w-2xl">
+        I’m a Web Developer who loves building  websites.
         Let’s build something great together!
       </p>
 
       {/* CTA Buttons */}
-      <div className="flex flex-wrap gap-4 justify-center">
-        <a href="#about">
-          <button className="px-6 py-2 md:py-3 text-[15px] md:text-[18px] rounded-md font-medium bg-gray-400 text-neutral-800 border border-[#333] hover:bg-gray-600 hover:text-white hover:border-transparent transition-all duration-300">
-            Explore More About Me
-          </button>
-        </a>
-        <a href={resume} download="Priya_Tripathi_Resume.pdf">
-          <button className="px-6 py-2 md:py-3 text-[15px] md:text-[18px] rounded-md font-medium bg-gray-400 text-neutral-800 border border-[#333] hover:bg-gray-600 hover:text-white hover:border-transparent transition-all duration-300">
-            Download CV
-          </button>
-        </a>
-      </div>
+     <div className="flex flex-wrap gap-4 justify-center">
+  <a href="#about">
+    <button className="px-6 py-2 text-[14px] md:text-[16px] rounded-md font-medium bg-gray-500 text-white-300 border border-[#333] hover:bg-gray-600 hover:text-white hover:border-transparent transition-all duration-300">
+      Explore More About Me
+    </button>
+  </a>
+  <a href={resume} download="Priya_Tripathi_Resume.pdf">
+    <button className="px-6 py-2 text-[12px] md:text-[16px] rounded-md font-medium bg-gray-500 text-white-300 border border-[#333] hover:bg-gray-600 hover:text-white hover:border-transparent transition-all duration-300">
+      Download CV
+    </button>
+  </a>
+</div>
+
     </section>
   );
 }

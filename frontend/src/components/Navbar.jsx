@@ -1,7 +1,5 @@
 import { HashLink } from 'react-router-hash-link';
 import React, { useState, useEffect } from 'react';
-import { Github, Linkedin, Instagram } from 'lucide-react';
-import logo from '../Images/logo1.png';
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -18,13 +16,16 @@ export default function Navbar() {
 
   useEffect(() => {
     const sections = ['home', 'about', 'education', 'skills', 'projects', 'certifications', 'contact'];
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          setActiveSection(entry.target.id);
-        }
-      });
-    }, { threshold: 0.5 });
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
 
     sections.forEach((section) => {
       const element = document.getElementById(section);
@@ -35,14 +36,18 @@ export default function Navbar() {
   }, []);
 
   return (
-    <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-      isScrolled ? 'bg-[#1F2D3D] shadow-md' : 'bg-[#0a1f34]'
-    }`}>
+    <nav
+      className={`fixed top-0 w-full z-50 transition-all duration-300 font-poppins ${
+        isScrolled ? 'bg-[#1F2D3D] shadow-md' : 'bg-[#0a1f34]'
+      }`}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <HashLink smooth to="/#home" className="flex items-center space-x-2">
-            <img src={logo} alt="Logo" className="h-12 w-auto object-contain" />
+            <h1 className="text-yellow-400 text-3xl font-semibold tracking-wide">
+              Priya Tripathi
+            </h1>
           </HashLink>
 
           {/* Hamburger Menu */}
@@ -73,39 +78,43 @@ export default function Navbar() {
           </div>
 
           {/* Desktop Nav Links */}
-          <div className="hidden md:flex md:items-center space-x-8 text-white text-xl">
-            {['home', 'about', 'education', 'skills', 'projects', 'certifications', 'contact'].map(section => (
-              <HashLink
-                key={section}
-                smooth
-                to={`/#${section}`}
-                className={`transition hover:text-gray-300 ${
-                  activeSection === section ? 'text-yellow-400' : ''
-                }`}
-              >
-                {section.charAt(0).toUpperCase() + section.slice(1)}
-              </HashLink>
-            ))}
+          <div className="hidden md:flex md:items-center space-x-8 text-white text-xl font-medium">
+            {['home', 'about', 'education', 'skills', 'projects', 'certifications', 'contact'].map(
+              (section) => (
+                <HashLink
+                  key={section}
+                  smooth
+                  to={`/#${section}`}
+                  className={`transition hover:text-gray-300 ${
+                    activeSection === section ? 'text-yellow-400' : ''
+                  }`}
+                >
+                  {section.charAt(0).toUpperCase() + section.slice(1)}
+                </HashLink>
+              )
+            )}
           </div>
         </div>
       </div>
 
       {/* Mobile Menu */}
       {isMenuOpen && (
-        <div className="md:hidden bg-[#0a1f34] text-white px-4 pt-2 pb-4 space-y-2 text-xl">
-          {['home', 'about', 'education', 'skills', 'projects', 'certifications', 'contact'].map(section => (
-            <HashLink
-              key={section}
-              smooth
-              to={`/#${section}`}
-              className={`block transition hover:text-gray-300 ${
-                activeSection === section ? 'text-yellow-400' : ''
-              }`}
-              onClick={() => setIsMenuOpen(false)} // close menu on click
-            >
-              {section.charAt(0).toUpperCase() + section.slice(1)}
-            </HashLink>
-          ))}
+        <div className="md:hidden bg-[#0a1f34] text-white px-4 pt-2 pb-4 space-y-2 text-xl font-medium font-poppins">
+          {['home', 'about', 'education', 'skills', 'projects', 'certifications', 'contact'].map(
+            (section) => (
+              <HashLink
+                key={section}
+                smooth
+                to={`/#${section}`}
+                className={`block transition hover:text-gray-300 ${
+                  activeSection === section ? 'text-yellow-400' : ''
+                }`}
+                onClick={() => setIsMenuOpen(false)} // close menu on click
+              >
+                {section.charAt(0).toUpperCase() + section.slice(1)}
+              </HashLink>
+            )
+          )}
         </div>
       )}
     </nav>

@@ -44,7 +44,7 @@ export default function About() {
 
           `Along the way, I’ve interned with IBM SkillsBuild & CSRBOX in frontend development and with C-DAC Noida, where I got exposure to ethical hacking and cybersecurity. These experiences helped me understand both how to build and how to protect.`,
 
-          `I’ve practiced a lot of problem-solving too — solving 300+ coding questions and earning 5⭐ in C++ & Problem Solving and 4⭐ in SQL and C on HackerRank.`,
+          `I’ve practiced a lot of problem-solving too — solving 300+ coding questions and earning 5star  in C++ & Problem Solving and 4star in SQL and C on HackerRank.`,
 
           `Beyond tech, I really enjoy singing and listening to music. It keeps me balanced, refreshed, and inspired to keep learning.`,
 
