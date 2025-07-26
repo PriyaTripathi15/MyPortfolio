@@ -5,33 +5,20 @@ import cert3 from '../Images/certificate3.jpg'; // IBM
 import cert4 from '../Images/certificate2.jpg'; // CDAC
 
 export default function Certifications() {
- const certs = [
-  {
-    img: cert1,
-    title: 'TechnoSearch 2025 – 1st Prize (Project Contest)',
-    description:
-      'Secured 1st position for developing a full-stack Training & Placement Portal at MANIT Bhopal during the TechnoSearch technical fest.',
-    platform: 'TechnoSearch 2025, MANIT Bhopal',
-    date: 'March 2025',
-  },
-  {
-    img: cert3,
-    title: 'Cyber Gyan Virtual Internship – C-DAC Noida',
-    description:
-      'Completed a certified training program in Ethical Hacking and Penetration Testing covering secure coding and network security practices.',
-    platform: 'C-DAC Noida',
-    date: 'June 2025',
-  },
-  {
-    img: cert4,
-    title: 'IBM SkillsBuild Frontend Internship',
-    description:
-      'Completed a 6-week frontend internship focused on HTML, CSS, JavaScript, Git, and responsive design under CSRBOX and IBM SkillsBuild.',
-    platform: 'IBM SkillsBuild & CSRBOX',
-    date: 'August 2024',
-  },
-];
-
+  const certs = [
+    {
+      img: cert1,
+      title: 'TechnoSearch 2025 – 1st Prize (Project Contest)',
+    },
+    {
+      img: cert3,
+      title: 'Cyber Gyan Virtual Internship – C-DAC Noida',
+    },
+    {
+      img: cert4,
+      title: 'IBM SkillsBuild Frontend Internship',
+    },
+  ];
 
   const [selectedCert, setSelectedCert] = useState(null);
 
@@ -57,7 +44,7 @@ export default function Certifications() {
         </h2>
       </motion.div>
 
-      {/* Certifications Grid */}
+      {/* Certificates Grid */}
       <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {certs.map((cert, index) => (
           <motion.div
@@ -71,12 +58,8 @@ export default function Certifications() {
             viewport={{ once: true }}
           >
             <img src={cert.img} alt={cert.title} className="w-full h-52 object-cover" />
-            <div className="p-5">
-              <h3 className="text-2xl font-semibold text-yellow-500 mb-2">{cert.title}</h3>
-              <p className="text-lg text-gray-300 mb-2">{cert.description}</p>
-              <div className="text-sm text-gray-400 italic">
-                {cert.platform} • {cert.date}
-              </div>
+            <div className="p-4">
+              <h3 className="text-xl font-semibold text-yellow-500">{cert.title}</h3>
             </div>
           </motion.div>
         ))}
@@ -86,36 +69,29 @@ export default function Certifications() {
       <AnimatePresence>
         {selectedCert && (
           <motion.div
-            className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50 p-4"
+            className="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-50 p-4"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
           >
             <motion.div
-              className="bg-[#2C3E50] rounded-lg overflow-hidden max-w-4xl w-full relative"
-              initial={{ scale: 0.8 }}
+              className="relative max-w-6xl w-full"
+              initial={{ scale: 0.85 }}
               animate={{ scale: 1 }}
-              exit={{ scale: 0.8 }}
+              exit={{ scale: 0.85 }}
               transition={{ duration: 0.3 }}
             >
               <button
                 onClick={() => setSelectedCert(null)}
-                className="absolute top-3 right-3 text-white text-3xl font-bold bg-gray-700 hover:bg-red-600 rounded-full w-10 h-10 flex items-center justify-center"
+                className="absolute top-4 right-4 text-white text-4xl font-bold bg-gray-700 hover:bg-red-600 rounded-full w-12 h-12 flex items-center justify-center z-10"
               >
                 &times;
               </button>
               <img
                 src={selectedCert.img}
-                alt={selectedCert.title}
-                className="w-full max-h-[70vh] object-contain"
+                alt="Certificate"
+                className="w-full max-h-[90vh] object-contain rounded-lg"
               />
-              <div className="p-6 text-white">
-                <h3 className="text-3xl font-bold text-yellow-500 mb-3">{selectedCert.title}</h3>
-                <p className="text-lg mb-3">{selectedCert.description}</p>
-                <div className="text-md text-gray-300 italic">
-                  {selectedCert.platform} • {selectedCert.date}
-                </div>
-              </div>
             </motion.div>
           </motion.div>
         )}

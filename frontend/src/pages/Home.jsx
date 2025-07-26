@@ -1,7 +1,7 @@
 import React from 'react';
 import { Typewriter } from 'react-simple-typewriter';
 import home from '../Images/my.jpg';
-import resume from "../assets/resume/resume.pdf";
+import resume from "../assets/resume/Priya_Tripathi_Resume.pdf";
 
 export default function Home() {
   return (
